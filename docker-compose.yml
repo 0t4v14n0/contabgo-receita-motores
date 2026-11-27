@@ -1,0 +1,24 @@
+services:
+  motor-rtc-regime-regular:
+    image: ghcr.io/0t4v14n0/contabgo-motor-rtc-regular:latest
+    build:
+      context: .
+      dockerfile: calculadora-rtc-regime-regular/Dockerfile
+    container_name: contabgo-motor-rtc-regular
+    ports:
+      - "8081:8080"
+    environment:
+      - JAVA_TOOL_OPTIONS=-Xms256m -Xmx512m
+    restart: unless-stopped
+
+  motor-rtc-simples-nacional:
+    image: ghcr.io/0t4v14n0/contabgo-motor-rtc-simples:latest
+    build:
+      context: .
+      dockerfile: calculadora-rtc-simples-nacional/Dockerfile
+    container_name: contabgo-motor-rtc-simples
+    ports:
+      - "8082:8080"
+    environment:
+      - JAVA_TOOL_OPTIONS=-Xms256m -Xmx512m
+    restart: unless-stopped
